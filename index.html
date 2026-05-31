@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>義城金氏 內앞門中 · andong.ai.kr</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1208;--gold:#b8943a;--gold-lt:#d4af6a;--gold-bg:rgba(184,148,58,.08);
+  --cream:#f7f2e8;--cream2:#ede6d5;--brown:#5a3e1b;--brown-lt:#8a6a3a;
+  --red:#8b1a1a;--white:#fff;--navy:#0a1628;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'Noto Serif KR',serif;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;background:rgba(247,242,232,.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(184,148,58,.2);}
+.nav-logo{font-family:'IM Fell English',serif;font-size:1rem;letter-spacing:.2em;color:var(--brown);}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:2rem;flex-wrap:wrap;}
+.nav-links a{font-family:'Noto Sans KR',sans-serif;font-size:.75rem;letter-spacing:.2em;color:var(--brown-lt);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 4rem;position:relative;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(184,148,58,.06) 0%,transparent 70%),var(--cream);}
+.hero-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(184,148,58,.04) 60px,rgba(184,148,58,.04) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(184,148,58,.04) 60px,rgba(184,148,58,.04) 61px);pointer-events:none;}
+.hero-badge{display:inline-block;border:1px solid var(--gold);padding:.35rem 1.5rem;font-family:'Noto Sans KR',sans-serif;font-size:.72rem;letter-spacing:.5em;color:var(--gold);margin-bottom:2.5rem;animation:fadeUp .8s ease both;}
+.hero-hanja{font-size:clamp(4rem,12vw,9rem);font-weight:700;color:var(--ink);letter-spacing:.1em;line-height:1;margin-bottom:1.5rem;animation:fadeUp .8s .1s ease both;}
+.hero-hanja span{color:var(--gold);}
+.hero-sub{font-family:'Noto Sans KR',sans-serif;font-size:clamp(.85rem,2vw,1rem);letter-spacing:.4em;color:var(--brown-lt);margin-bottom:3rem;animation:fadeUp .8s .2s ease both;}
+.hero-divider{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 3rem;animation:fadeUp .8s .3s ease both;}
+.hero-desc{max-width:520px;font-size:1rem;line-height:2.2;color:var(--brown);animation:fadeUp .8s .4s ease both;}
+.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);font-family:'Noto Sans KR',sans-serif;font-size:.68rem;letter-spacing:.4em;color:rgba(90,62,27,.4);animation:pulse 2s infinite;}
+
+/* SECTIONS */
+section{padding:6rem 2rem;position:relative;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-family:'Noto Sans KR',sans-serif;font-size:.72rem;letter-spacing:.5em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:3rem;}
+.section-title em{font-style:normal;color:var(--gold);}
+
+/* HISTORY TIMELINE */
+.history{background:var(--ink);}
+.history .section-eyebrow{color:var(--gold-lt);}
+.history .section-title{color:var(--cream);}
+.timeline{display:flex;flex-direction:column;}
+.tl-item{display:grid;grid-template-columns:120px 1px 1fr;gap:0 2rem;padding:2rem 0;border-bottom:1px solid rgba(247,242,232,.06);}
+.tl-year{font-family:'IM Fell English',serif;font-size:1.4rem;color:var(--gold);text-align:right;padding-top:.2rem;}
+.tl-dot{display:flex;flex-direction:column;align-items:center;}
+.tl-dot-circle{width:10px;height:10px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem;}
+.tl-dot-line{flex:1;width:1px;background:rgba(184,148,58,.2);}
+.tl-name{font-size:1.1rem;font-weight:600;color:var(--cream);margin-bottom:.4rem;}
+.tl-name span{font-size:.78rem;font-weight:300;color:var(--gold-lt);margin-left:.7rem;font-family:'Noto Sans KR',sans-serif;}
+.tl-text{font-size:.9rem;line-height:1.9;color:rgba(237,230,213,.6);font-family:'Noto Sans KR',sans-serif;}
+
+/* ANCESTORS */
+.ancestors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;}
+.ancestor-card{background:var(--white);border:1px solid rgba(184,148,58,.15);border-radius:4px;padding:1.8rem;transition:transform .3s,box-shadow .3s;}
+.ancestor-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(90,62,27,.1);}
+.ancestor-card.highlight{border-top:3px solid var(--gold);}
+.ac-number{font-family:'IM Fell English',serif;font-size:2.5rem;color:rgba(184,148,58,.15);line-height:1;margin-bottom:.8rem;}
+.ac-title{font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:.3rem;}
+.ac-title span{font-size:.78rem;font-weight:300;color:var(--gold);margin-left:.4rem;font-family:'Noto Sans KR',sans-serif;}
+.ac-text{font-size:.88rem;line-height:1.9;color:var(--brown-lt);font-family:'Noto Sans KR',sans-serif;}
+.ac-tag{display:inline-block;margin-top:.8rem;padding:.2rem .7rem;border:1px solid rgba(184,148,58,.3);border-radius:2px;font-size:.7rem;letter-spacing:.2em;color:var(--gold);font-family:'Noto Sans KR',sans-serif;}
+
+/* VILLAGE */
+.village{background:var(--cream2);}
+.village-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.village-text p{font-size:.93rem;line-height:2.2;color:var(--brown);margin-bottom:1.2rem;font-family:'Noto Sans KR',sans-serif;}
+.village-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;}
+.vstat{background:var(--white);border:1px solid rgba(184,148,58,.2);padding:1.2rem;border-radius:4px;text-align:center;}
+.vstat-num{font-family:'IM Fell English',serif;font-size:2rem;color:var(--gold);}
+.vstat-label{font-family:'Noto Sans KR',sans-serif;font-size:.72rem;letter-spacing:.15em;color:var(--brown-lt);margin-top:.3rem;}
+.village-map{background:var(--ink);border-radius:4px;aspect-ratio:4/3;overflow:hidden;}
+
+/* FIGURES */
+.figures-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;}
+.figure-card{background:var(--white);border:1px solid rgba(184,148,58,.15);border-radius:4px;padding:1.8rem;}
+.fig-era{font-family:'Noto Sans KR',sans-serif;font-size:.7rem;letter-spacing:.3em;color:var(--gold);margin-bottom:.5rem;}
+.fig-name{font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:.3rem;}
+.fig-name span{font-size:.78rem;font-weight:300;color:var(--brown-lt);margin-left:.4rem;font-family:'Noto Sans KR',sans-serif;}
+.fig-text{font-size:.86rem;line-height:1.9;color:var(--brown-lt);font-family:'Noto Sans KR',sans-serif;}
+.fig-badge{display:inline-block;margin-top:.8rem;padding:.2rem .7rem;background:rgba(184,148,58,.1);border-radius:2px;font-size:.7rem;color:var(--gold);font-family:'Noto Sans KR',sans-serif;}
+
+/* INDEPENDENCE */
+.independence{background:var(--ink);}
+.independence .section-eyebrow{color:var(--gold-lt);}
+.independence .section-title{color:var(--cream);}
+.ind-intro{font-family:'Noto Sans KR',sans-serif;font-size:.95rem;line-height:2;color:rgba(237,230,213,.7);margin-bottom:2.5rem;max-width:700px;}
+.ind-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:3rem;}
+.ind-stat{background:rgba(247,242,232,.05);border:1px solid rgba(184,148,58,.2);border-radius:4px;padding:1.5rem;text-align:center;}
+.ind-stat-num{font-family:'IM Fell English',serif;font-size:2.5rem;color:var(--gold);}
+.ind-stat-label{font-family:'Noto Sans KR',sans-serif;font-size:.78rem;color:rgba(237,230,213,.5);margin-top:.3rem;}
+.ind-people{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+.ind-person{background:rgba(247,242,232,.04);border:1px solid rgba(184,148,58,.15);border-radius:4px;padding:1.2rem;}
+.ind-person-name{font-size:1rem;font-weight:600;color:var(--cream);margin-bottom:.3rem;}
+.ind-person-name span{font-size:.75rem;font-weight:300;color:var(--gold-lt);margin-left:.4rem;font-family:'Noto Sans KR',sans-serif;}
+.ind-person-text{font-size:.82rem;line-height:1.8;color:rgba(237,230,213,.55);font-family:'Noto Sans KR',sans-serif;}
+
+/* GENEALOGY HISTORY */
+.geneal{background:var(--cream2);}
+.geneal-table{width:100%;border-collapse:collapse;font-family:'Noto Sans KR',sans-serif;}
+.geneal-table th{background:var(--ink);color:var(--gold-lt);font-size:.78rem;letter-spacing:.2em;padding:.8rem 1rem;text-align:left;font-weight:500;}
+.geneal-table td{padding:.8rem 1rem;font-size:.88rem;color:var(--brown);border-bottom:1px solid rgba(184,148,58,.1);line-height:1.7;}
+.geneal-table tr:hover td{background:rgba(184,148,58,.04);}
+
+/* HAENGNYEOL WIDGET */
+.haengnyeol{background:var(--white);}
+.tab-row{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap;}
+.hn-tab{padding:.4rem 1rem;border-radius:20px;border:1px solid rgba(184,148,58,.3);background:transparent;font-family:'Noto Sans KR',sans-serif;font-size:.8rem;color:var(--brown-lt);cursor:pointer;transition:all .2s;}
+.hn-tab.active{background:var(--ink);color:var(--gold);border-color:var(--ink);}
+.hn-panel{display:none;}
+.hn-panel.active{display:block;}
+.hn-notice{background:var(--gold-bg);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;padding:.9rem 1.1rem;margin-bottom:1.2rem;font-family:'Noto Sans KR',sans-serif;font-size:.85rem;color:var(--brown);line-height:1.9;}
+.hn-input-row{display:flex;gap:8px;margin-bottom:1rem;}
+.hn-input{flex:1;padding:0 12px;height:42px;border:1px solid rgba(184,148,58,.3);border-radius:4px;font-size:1rem;background:var(--cream);color:var(--ink);font-family:'Noto Serif KR',serif;}
+.hn-btn{padding:0 1.2rem;height:42px;border:1px solid rgba(184,148,58,.4);border-radius:4px;background:var(--ink);color:var(--gold);cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:.85rem;}
+.hn-btn:hover{background:#2a1a08;}
+.hn-result{display:none;border:1px solid rgba(184,148,58,.3);border-radius:4px;padding:1.5rem;margin-bottom:1.2rem;text-align:center;}
+.hn-result.found{border-color:rgba(90,140,90,.4);background:rgba(90,140,90,.04);}
+.hn-result.err{border-color:rgba(180,60,60,.3);background:rgba(180,60,60,.03);}
+.hn-char{font-size:3rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;}
+.hn-se{font-family:'Noto Sans KR',sans-serif;font-size:.82rem;color:var(--brown-lt);margin-bottom:.8rem;}
+.hn-main{font-size:1.4rem;font-weight:600;color:#3a6a3a;margin-bottom:.3rem;}
+.hn-sub{font-family:'Noto Sans KR',sans-serif;font-size:.82rem;color:var(--brown-lt);}
+.hn-err{font-family:'Noto Sans KR',sans-serif;font-size:.9rem;color:#8b1a1a;}
+.compare-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-bottom:1rem;}
+.vs-label{font-family:'Noto Sans KR',sans-serif;font-size:.82rem;color:var(--brown-lt);text-align:center;}
+.compare-result{display:none;border:1px solid rgba(184,148,58,.3);border-radius:4px;padding:1.5rem;margin-bottom:1.2rem;}
+.cmp-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.cmp-card{background:var(--cream2);border-radius:4px;padding:1rem;text-align:center;}
+.cmp-card.me{border:2px solid var(--gold);}
+.cmp-label{font-family:'Noto Sans KR',sans-serif;font-size:.72rem;letter-spacing:.2em;color:var(--brown-lt);margin-bottom:.3rem;}
+.cmp-char{font-size:2rem;font-weight:700;color:var(--ink);}
+.cmp-se{font-family:'Noto Sans KR',sans-serif;font-size:.75rem;color:var(--brown-lt);margin-top:.2rem;}
+.cmp-verdict{text-align:center;}
+.cmp-v-main{font-size:1.2rem;font-weight:600;color:var(--ink);margin-bottom:.3rem;}
+.cmp-v-sub{font-family:'Noto Sans KR',sans-serif;font-size:.82rem;color:var(--brown-lt);}
+.hn-table{width:100%;border-collapse:collapse;font-family:'Noto Sans KR',sans-serif;}
+.hn-table th{background:var(--ink);color:var(--gold-lt);font-size:.75rem;padding:.6rem .8rem;text-align:left;font-weight:500;}
+.hn-table td{padding:.55rem .8rem;font-size:.85rem;color:var(--brown);border-bottom:1px solid rgba(184,148,58,.08);line-height:1.8;}
+.hn-table tr.hl-me td{background:rgba(184,148,58,.08);}
+.hn-table tr.hl-other td{background:rgba(90,140,90,.06);}
+
+/* ACCESS */
+.access{background:var(--ink);}
+.access .section-eyebrow{color:var(--gold-lt);}
+.access .section-title{color:var(--cream);}
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.access-block h3{font-family:'Noto Sans KR',sans-serif;font-size:.85rem;letter-spacing:.3em;color:var(--gold);margin-bottom:1.2rem;}
+.access-item{display:flex;gap:1rem;margin-bottom:1.2rem;align-items:flex-start;}
+.access-icon{width:36px;height:36px;border:1px solid rgba(184,148,58,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.9rem;color:var(--gold);}
+.access-text{font-family:'Noto Sans KR',sans-serif;font-size:.88rem;line-height:1.9;color:rgba(237,230,213,.65);}
+.access-text strong{color:var(--cream);font-weight:500;}
+.access-link{display:inline-block;margin-top:1.5rem;padding:.6rem 1.5rem;border:1px solid rgba(184,148,58,.4);border-radius:2px;font-family:'Noto Sans KR',sans-serif;font-size:.82rem;color:var(--gold);text-decoration:none;letter-spacing:.15em;transition:all .2s;}
+.access-link:hover{background:rgba(184,148,58,.1);}
+
+/* FOOTER */
+footer{background:var(--ink);border-top:1px solid rgba(184,148,58,.15);padding:3rem 2rem;text-align:center;}
+.footer-logo{font-family:'IM Fell English',serif;font-size:1.5rem;color:var(--gold);margin-bottom:1rem;}
+footer p{font-family:'Noto Sans KR',sans-serif;font-size:.78rem;letter-spacing:.2em;color:rgba(237,230,213,.3);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:.4;}50%{opacity:1;}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+@media(max-width:768px){
+  nav{padding:.8rem 1.2rem;}
+  .nav-links{gap:1rem;}
+  .village-layout,.access-grid{grid-template-columns:1fr;}
+  .tl-item{grid-template-columns:70px 1px 1fr;}
+  .ind-stats{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">義城<span>金</span>氏 · andong.ai.kr</div>
+  <div class="nav-links">
+    <a href="#history">역사</a>
+    <a href="#ancestors">선조</a>
+    <a href="#village">내앞마을</a>
+    <a href="#figures">인물</a>
+    <a href="#independence">독립운동</a>
+    <a href="#genealogy">족보</a>
+    <a href="#haengnyeol">항렬</a>
+    <a href="#access">찾아오기</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-badge">의성김씨 내앞문중 · 천전리 · 안동</div>
+  <div class="hero-hanja">義城<span>金</span>氏</div>
+  <div class="hero-sub">UISEONG KIM CLAN · EST. 1500s · NAAPP VILLAGE</div>
+  <div class="hero-divider"></div>
+  <p class="hero-desc">신라 경순왕의 넷째 아들 김석(金錫)을 시조로 하여,<br>청계 김진 선조가 안동 내앞마을에 뿌리를 내린 이래<br>500여 년의 역사를 이어온 의성김씨 내앞문중의 기록입니다.</p>
+  <div class="scroll-hint">SCROLL ↓</div>
+</section>
+
+<!-- NOTICE BANNER -->
+<section style="background:var(--cream2);padding:2rem;border-bottom:1px solid rgba(184,148,58,.15);">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+    <div style="flex:1;min-width:280px;">
+      <div style="font-family:'Noto Sans KR',sans-serif;font-size:.72rem;letter-spacing:.4em;color:var(--gold);margin-bottom:.5rem;">ABOUT THIS SITE</div>
+      <p style="font-family:'Noto Sans KR',sans-serif;font-size:.88rem;line-height:1.9;color:var(--brown);">이 사이트는 의성김씨 귀봉공파의 한 후손이 직접 제작한 개인 홈페이지입니다. 500년 가문의 역사를 디지털로 기록하고 종친 여러분과 나누고자 만들었습니다. 어른 종친회 어르신들께서 직접 관리하시기 어려운 부분을 미력하나마 후손으로서 보탬이 되고자 하였습니다.</p>
+    </div>
+    <div style="text-align:right;flex-shrink:0;">
+      <div style="font-family:'Noto Sans KR',sans-serif;font-size:.78rem;color:var(--brown-lt);">운영자</div>
+      <div style="font-family:'Noto Serif KR',serif;font-size:1.2rem;font-weight:600;color:var(--ink);margin:.2rem 0;">김준호</div>
+      <div style="font-family:'Noto Sans KR',sans-serif;font-size:.78rem;color:var(--brown-lt);">의성김씨 귀봉공파 · 대구</div>
+      <div style="font-family:'Noto Sans KR',sans-serif;font-size:.78rem;color:var(--gold);margin-top:.4rem;">junhoangel@gmail.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="history" id="history">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">가문의 역사</div>
+    <h2 class="section-title reveal">500년의 <em>뿌리</em></h2>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-year">신라</div>
+        <div class="tl-dot"><div class="tl-dot-circle"></div><div class="tl-dot-line"></div></div>
+        <div><div class="tl-name">시조 김석 <span>金錫 · 의성군</span></div><div class="tl-text">신라 경순왕의 넷째 아들. 고려 광종 때 광평시랑을 역임하고 의성군(義城君)에 봉해졌다. 자손들이 의성을 본관으로 삼았으며, 의성의 옛 이름이 문소(聞韶)였기에 문소김씨라고도 불렸다.</div></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year">고려말</div>
+        <div class="tl-dot"><div class="tl-dot-circle"></div><div class="tl-dot-line"></div></div>
+        <div><div class="tl-name">안동 낙향</div><div class="tl-text">공민왕 12년 흥왕사 변란 이후 화를 피해 안동으로 낙향. 풍산현에 거주하다 임하현 내앞으로 이거하였다.</div></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year">1500년</div>
+        <div class="tl-dot"><div class="tl-dot-circle"></div><div class="tl-dot-line"></div></div>
+        <div><div class="tl-name">청계 김진 탄생 <span>金璡 · 1500~1580</span></div><div class="tl-text">의성김씨 내앞시대의 개창조. 곳곳에 서당을 세워 후진을 양성하고, 아들 5형제를 모두 과거에 급제시켰다. 부인과 사별 후 홀로 8남매를 키운 위대한 선조. 청계 종택이 내앞마을에 현존하며 불천위 조상으로 모시고 있다.</div></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year">1592년</div>
+        <div class="tl-dot"><div class="tl-dot-circle"></div><div class="tl-dot-line"></div></div>
+        <div><div class="tl-name">임진왜란과 의병</div><div class="tl-text">학봉 김성일(청계의 4남)이 경상우도 초유사로 순국하였고, 임란창의순절공신도 응봉 치중, 백암 응택, 구오 득기 등 20여 명에 이른다. 의성김씨 가문의 의(義)를 숭상하는 정신이 빛을 발했다.</div></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year">1553년</div>
+        <div class="tl-dot"><div class="tl-dot-circle"></div><div class="tl-dot-line"></div></div>
+        <div><div class="tl-name">최초 족보 계축보</div><div class="tl-text">명종 8년, 외손 의성현령 이숙(李繡) 공이 만든 계보를 금계 황준량 공이 서문을 쓰면서 시작되었다. 이후 470년간 10차례 족보가 편찬되었다.</div></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year">근현대</div>
+        <div class="tl-dot"><div class="tl-dot-circle"></div><div class="tl-dot-line"></div></div>
+        <div><div class="tl-name">33인의 독립운동가</div><div class="tl-text">내앞마을 한 곳에서만 33명의 독립운동가가 배출되었다. 단일 성씨로는 독립운동가를 가장 많이 배출한 가문으로 기록되어 있다. 만주 신흥무관학교를 설립한 일송 김동삼 선생의 생가가 이 마을에 있다.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANCESTORS -->
+<section id="ancestors">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">청계공의 다섯 아들</div>
+    <h2 class="section-title reveal">내앞문중의 <em>근간</em></h2>
+    <div class="ancestors-grid">
+      <div class="ancestor-card reveal">
+        <div class="ac-number">一</div>
+        <div class="ac-title">약봉 김극일 <span>藥峯 金克一</span></div>
+        <div class="ac-text">청계공의 장남. 과거에 급제하여 가문의 이름을 높였다. 약봉공파의 시조.</div>
+        <div class="ac-tag">장남 · 약봉공파</div>
+      </div>
+      <div class="ancestor-card highlight reveal">
+        <div class="ac-number">二</div>
+        <div class="ac-title">귀봉 김수일 <span>龜峯 金守一</span></div>
+        <div class="ac-text">청계공의 차남. 귀봉공파의 중시조. 귀봉 종택이 내앞마을(임하면 천전리)에 현존하며 문화재로 보존되고 있다. 본 문중 직계 선조.</div>
+        <div class="ac-tag">차남 · 귀봉공파 · 직계 선조</div>
+      </div>
+      <div class="ancestor-card reveal">
+        <div class="ac-number">三</div>
+        <div class="ac-title">운암 김명일 <span>雲岩 金明一</span></div>
+        <div class="ac-text">청계공의 셋째 아들. 운암공파의 시조. 후손이 임하면 신덕리와 임하리에 세거하고 있다. 운암 종택이 신덕리에 현존한다.</div>
+        <div class="ac-tag">삼남 · 운암공파</div>
+      </div>
+      <div class="ancestor-card reveal">
+        <div class="ac-number">四</div>
+        <div class="ac-title">학봉 김성일 <span>鶴峯 金誠一</span></div>
+        <div class="ac-text">청계공의 넷째 아들. 퇴계 이황의 제자로 학문이 깊었다. 임진왜란 시 경상우도 초유사로 순국. 서후면 금계리에 학봉 종택이 있다.</div>
+        <div class="ac-tag">사남 · 학봉공파</div>
+      </div>
+      <div class="ancestor-card reveal">
+        <div class="ac-number">五</div>
+        <div class="ac-title">남악 김복일 <span>南嶽 金復一</span></div>
+        <div class="ac-text">청계공의 막내아들. 남악공파의 시조. 5형제 모두 과거에 급제한 것은 청계공의 교육 정신의 결실이다.</div>
+        <div class="ac-tag">오남 · 남악공파</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VILLAGE -->
+<section class="village" id="village">
+  <div class="section-inner">
+    <div class="village-layout">
+      <div class="village-text reveal">
+        <div class="section-eyebrow">내앞마을 · 川前里</div>
+        <h2 class="section-title">영남 4대 길지<br><em>천전리</em></h2>
+        <p>경상북도 안동시 임하면 천전리. 마을 앞으로 반변천(半邊川)이 흐른다고 하여 '내앞(川前)'이라 불리는 이곳은, 조선 후기 실학자 이중환의 택리지에서 영남 4대 길지 중 하나로 꼽힌 명당이다.</p>
+        <p>청계 김진 선조가 이곳에 자리를 잡은 이래 500여 년간 의성김씨의 정신적 본향이 되어왔으며, 청계 종택과 귀봉 종택이 현존하여 문화재로 보존되고 있다. 유적 유물 35점이 문화재로 지정되어 있다.</p>
+        <div class="village-stats">
+          <div class="vstat reveal"><div class="vstat-num">500+</div><div class="vstat-label">년의 역사</div></div>
+          <div class="vstat reveal"><div class="vstat-num">33</div><div class="vstat-label">독립운동가 배출</div></div>
+          <div class="vstat reveal"><div class="vstat-num">35</div><div class="vstat-label">문화재 지정</div></div>
+          <div class="vstat reveal"><div class="vstat-num">30만</div><div class="vstat-label">전국 종친 수</div></div>
+        </div>
+      </div>
+      <div class="village-map reveal">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+          <path d="M0,200 Q100,180 200,190 Q300,200 400,185" fill="none" stroke="#3a6a8a" stroke-width="18" opacity=".6"/>
+          <path d="M0,205 Q100,185 200,195 Q300,205 400,190" fill="none" stroke="#5a8aaa" stroke-width="8" opacity=".3"/>
+          <polygon points="320,140 380,40 440,140" fill="#2a3a1a" opacity=".4"/>
+          <polygon points="280,150 360,30 440,150" fill="#1a2a0a" opacity=".3"/>
+          <rect x="120" y="120" width="160" height="70" rx="4" fill="rgba(184,148,58,.1)" stroke="rgba(184,148,58,.4)" stroke-width="1"/>
+          <rect x="140" y="130" width="30" height="25" rx="2" fill="#b8943a" opacity=".7"/>
+          <polygon points="140,130 155,115 170,130" fill="#8a6a2a" opacity=".8"/>
+          <text x="155" y="168" text-anchor="middle" fill="#d4af6a" font-size="8" font-family="serif">청계종택</text>
+          <rect x="200" y="135" width="25" height="20" rx="2" fill="#b8943a" opacity=".5"/>
+          <polygon points="200,135 212,122 225,135" fill="#8a6a2a" opacity=".7"/>
+          <text x="212" y="168" text-anchor="middle" fill="#d4af6a" font-size="8" font-family="serif">귀봉종택</text>
+          <text x="200" y="105" text-anchor="middle" fill="#d4af6a" font-size="13" font-family="serif" font-weight="bold">川前里 · 내앞마을</text>
+          <text x="200" y="225" text-anchor="middle" fill="#5a8aaa" font-size="10" font-family="serif">반변천 半邊川</text>
+          <circle cx="360" cy="55" r="18" fill="none" stroke="rgba(184,148,58,.3)" stroke-width="1"/>
+          <text x="360" y="43" text-anchor="middle" fill="#b8943a" font-size="9">N</text>
+          <line x1="360" y1="45" x2="360" y2="38" stroke="#b8943a" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIGURES -->
+<section id="figures">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">역대 인물</div>
+    <h2 class="section-title reveal">가문을 빛낸 <em>선현</em></h2>
+    <div class="figures-grid">
+      <div class="figure-card reveal">
+        <div class="fig-era">조선 · 학자</div>
+        <div class="fig-name">모재 김안국 <span>慕齋 金安國</span></div>
+        <div class="fig-text">조선 4대 국현 중 한 명. 도학과 문장으로 이름을 떨쳤다. 정승 판서보다 도학과 절의로 으뜸가는 사족의 상징.</div>
+        <div class="fig-badge">조선 4대 현인</div>
+      </div>
+      <div class="figure-card reveal">
+        <div class="fig-era">조선 · 학자</div>
+        <div class="fig-name">사재 김정국 <span>思齋 金正國</span></div>
+        <div class="fig-text">모재 김안국의 아우. 형제가 함께 조선 최고의 유학자로 추앙받았다. 기묘 명현으로 숭앙받고 있다.</div>
+        <div class="fig-badge">조선 4대 현인</div>
+      </div>
+      <div class="figure-card reveal">
+        <div class="fig-era">조선 · 의병장</div>
+        <div class="fig-name">학봉 김성일 <span>鶴峯 金誠一</span></div>
+        <div class="fig-text">퇴계 이황의 수제자. 임진왜란 때 경상우도 초유사로 활약하다 순국. 퇴계의 정맥을 이은 학자로 추앙받는다.</div>
+        <div class="fig-badge">청계공 4남</div>
+      </div>
+      <div class="figure-card reveal">
+        <div class="fig-era">조선 · 학자</div>
+        <div class="fig-name">동강 김우옹 <span>東岡 金宇顒</span></div>
+        <div class="fig-text">남명 조식의 수제자. 나라의 위기를 감당한 학자. 조선 4대 국현 중 한 명으로 꼽힌다.</div>
+        <div class="fig-badge">조선 4대 현인</div>
+      </div>
+      <div class="figure-card reveal">
+        <div class="fig-era">일제강점기 · 독립운동가</div>
+        <div class="fig-name">일송 김동삼 <span>一松 金東三</span></div>
+        <div class="fig-text">만주벌 독립투쟁의 호랑이. 만주 신흥무관학교 설립, 파리장서 및 군자금 모금 등 전국 유림 독립운동을 주도했다.</div>
+        <div class="fig-badge">내앞마을 출신</div>
+      </div>
+      <div class="figure-card reveal">
+        <div class="fig-era">현대 · 교육자</div>
+        <div class="fig-name">심산 김창숙 <span>心山 金昌淑</span></div>
+        <div class="fig-text">성균관대학교 설립자. 일제와 끝까지 싸운 독립운동가이자 교육자. 대한민국 건국훈장 대한민국장 수훈.</div>
+        <div class="fig-badge">성균관대 설립</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDEPENDENCE -->
+<section class="independence" id="independence">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">독립운동</div>
+    <h2 class="section-title reveal">나라가 위기일 때<br><em>앞장선 가문</em></h2>
+    <p class="ind-intro reveal">의성김씨는 단일 성씨로 독립운동가를 가장 많이 배출한 가문입니다. 내앞마을 한 곳에서만 33명의 독립운동가가 배출되었으며, 가문과 친인척 전체가 독립운동에 투신했다 해도 과언이 아닐 정도입니다.</p>
+    <div class="ind-stats">
+      <div class="ind-stat reveal"><div class="ind-stat-num">33</div><div class="ind-stat-label">내앞마을 독립운동가</div></div>
+      <div class="ind-stat reveal"><div class="ind-stat-num">100+</div><div class="ind-stat-label">훈·포장 수훈자</div></div>
+      <div class="ind-stat reveal"><div class="ind-stat-num">1</div><div class="ind-stat-label">단일 성씨 최다 배출</div></div>
+    </div>
+    <div class="ind-people">
+      <div class="ind-person reveal">
+        <div class="ind-person-name">일송 김동삼 <span>一松</span></div>
+        <div class="ind-person-text">만주벌 독립투쟁의 호랑이. 신흥무관학교 설립. 파리장서·군자금 모금 등 유림 독립운동 주도.</div>
+      </div>
+      <div class="ind-person reveal">
+        <div class="ind-person-name">심산 김창숙 <span>心山</span></div>
+        <div class="ind-person-text">성균관대학교 설립자. 끝까지 일제에 굴하지 않은 유림의 대표적 독립운동가.</div>
+      </div>
+      <div class="ind-person reveal">
+        <div class="ind-person-name">김우락 지사 <span>金宇洛</span></div>
+        <div class="ind-person-text">석주 이상룡의 부인. 건국훈장 애족장 추서. 의성김씨 여성 독립운동가.</div>
+      </div>
+      <div class="ind-person reveal">
+        <div class="ind-person-name">남자현 지사 <span>南慈賢</span></div>
+        <div class="ind-person-text">일제와 싸우다 순국한 김영주 의병의 부인. 한국 대표 여성 독립운동가.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GENEALOGY HISTORY -->
+<section class="geneal" id="genealogy">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">족보의 역사</div>
+    <h2 class="section-title reveal">470년간 <em>10차 편찬</em></h2>
+    <table class="geneal-table reveal">
+      <thead><tr><th>회차</th><th>연도</th><th>명칭</th><th>왕조/시대</th><th>주요 내용</th></tr></thead>
+      <tbody>
+        <tr><td>1차</td><td>1553년</td><td>계축보</td><td>조선 명종</td><td>외손 의성현령 이숙 공이 시작. 금계 황준량 서문</td></tr>
+        <tr><td>2차</td><td>1609년</td><td>기유보</td><td>광해군 원년</td><td>재수보. 이계 김덕화(22세) 서문</td></tr>
+        <tr><td>3차</td><td>1650년</td><td>경인보</td><td>효종 원년</td><td>임진왜란 후 흩어진 종친 수단하여 편찬</td></tr>
+        <tr><td>4차</td><td>1656년</td><td>병신보</td><td>효종</td><td>단행본. 3차 보완</td></tr>
+        <tr><td>5차</td><td>1719년</td><td>경자보</td><td>숙종 45년</td><td>8년에 걸쳐 편찬. 전7권</td></tr>
+        <tr><td>6차</td><td>1802년</td><td>신유보</td><td>순조 원년</td><td>경자보 보완. 예안파 합본. 전18권</td></tr>
+        <tr><td>7차</td><td>1901년</td><td>신축보</td><td>고종 38년</td><td>신유보의 예안파 환본 정당 확인</td></tr>
+        <tr><td>8차</td><td>1925년</td><td>갑자보</td><td>일제강점기</td><td>이북 포함 전국 수단. 최광범위</td></tr>
+        <tr><td>9차</td><td>1960년</td><td>경자보</td><td>제2공화국</td><td>약보 간행. 20세까지 관작·호 기재</td></tr>
+        <tr><td>10차</td><td>1992년</td><td>임신보</td><td>노태우 정권</td><td>신보서전 13권. 배위·품계·덕행·문장 상세 수록</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- HAENGNYEOL -->
+<section class="haengnyeol" id="haengnyeol">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">항렬자</div>
+    <h2 class="section-title reveal">나는 몇 <em>대손</em>일까요?</h2>
+    <div class="tab-row reveal">
+      <button class="hn-tab active" onclick="hnTab('find')">내 항렬 찾기</button>
+      <button class="hn-tab" onclick="hnTab('compare')">종친 항렬 비교</button>
+      <button class="hn-tab" onclick="hnTab('table')">항렬자 전체 표</button>
+    </div>
+    <div class="hn-panel active" id="hn-find">
+      <div class="hn-notice">이름에 쓰인 <strong>항렬 한자</strong> 한 글자를 입력하세요.<br>예) 김준<strong>호</strong>이면 → <strong>鎬</strong> 입력 · 청계공(15세)을 기준으로 계산합니다.</div>
+      <div class="hn-input-row"><input class="hn-input" id="hnFindInput" type="text" maxlength="1" placeholder="항렬 한자 입력 (예: 鎬)"><button class="hn-btn" onclick="hnFind()">검색</button></div>
+      <div class="hn-result" id="hnFindResult"></div>
+    </div>
+    <div class="hn-panel" id="hn-compare">
+      <div class="hn-notice">나와 상대방의 항렬 한자를 각각 입력하면 <strong>누가 몇 세 위인지</strong> 알려드립니다.<br>같은 세수라면 동항렬(형제뻘)입니다.</div>
+      <div class="compare-grid"><input class="hn-input" id="hnMe" type="text" maxlength="1" placeholder="내 항렬자"><div class="vs-label">vs</div><input class="hn-input" id="hnOther" type="text" maxlength="1" placeholder="상대 항렬자"></div>
+      <button class="hn-btn" style="width:100%;margin-bottom:1rem;" onclick="hnCompare()">비교하기</button>
+      <div class="compare-result" id="hnCompareResult"></div>
+    </div>
+    <div class="hn-panel" id="hn-table">
+      <div class="hn-notice">청계공(淸溪公 金璡, 1500~1580)을 <strong>1대조</strong>로 기준합니다.</div>
+      <table class="hn-table"><thead><tr><th>의성김씨 세</th><th>항렬자</th><th>청계공 기준</th></tr></thead><tbody id="hnTableBody"></tbody></table>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access" id="access">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">찾아오기 · 종친회</div>
+    <h2 class="section-title reveal">내앞마을로 <em>오시는 길</em></h2>
+    <div class="access-grid">
+      <div class="access-block reveal">
+        <h3>내앞마을 (천전리)</h3>
+        <div class="access-item">
+          <div class="access-icon">📍</div>
+          <div class="access-text"><strong>주소</strong><br>경상북도 안동시 임하면 천전리<br>임하댐 하류, 34번 국도변</div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon">🚗</div>
+          <div class="access-text"><strong>자가용</strong><br>안동 시내에서 영덕 방면 34번 국도 → 임하면 천전리</div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon">🏛</div>
+          <div class="access-text"><strong>주요 유적</strong><br>청계 종택 · 귀봉 종택 · 경북독립운동기념관</div>
+        </div>
+      </div>
+      <div class="access-block reveal">
+        <h3>이 사이트에 대하여</h3>
+        <div class="access-item">
+          <div class="access-icon">👤</div>
+          <div class="access-text"><strong>운영자</strong><br>김준호 · 의성김씨 귀봉공파 후손<br>대구 거주</div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon">✉</div>
+          <div class="access-text"><strong>연락처</strong><br>junhoangel@gmail.com</div>
+        </div>
+        <div class="access-item">
+          <div class="access-icon">📌</div>
+          <div class="access-text">이 사이트는 의성김씨 귀봉공파의 한 후손이 직접 제작한 개인 홈페이지입니다. 500년 가문의 역사를 디지털로 기록하고 종친 여러분과 나누고자 만들었습니다. 어른 종친회 어르신들께서 직접 관리하시기 어려운 부분을 미력하나마 후손으로서 보탬이 되고자 하였습니다. 족보 자료 보완이나 오류 제보는 언제든 이메일로 연락 주시면 감사하겠습니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">義城金氏</div>
+  <p>의성김씨 내앞문중 · 귀봉공파 · andong.ai.kr</p>
+  <p style="margin-top:.5rem;">© 2026 Kim Junho · 청계공 후손</p>
+</footer>
+
+<script>
+const CHEONGYE_SE=15;
+const hnData=[
+  {se:19,chars:'萬(만)·民(민)·邦(방)'},{se:20,chars:'復(복)·誠(성)·一(일)·逸(일)'},
+  {se:21,chars:'克(극)·守(수)·明(명)'},{se:22,chars:'以(이)·夢(몽)·德(덕)'},
+  {se:23,chars:'明(명)·雲(운)·彦(언)'},{se:24,chars:'聲(성)·久(구)·弘(홍)'},
+  {se:25,chars:'世(세)·宜(의)·乙(을)'},{se:26,chars:'道(도)·泰(태)·在(재)'},
+  {se:27,chars:'行(행)·鎭(진)·弘(홍)'},{se:28,chars:'博(박)·文(문)·成(성)'},
+  {se:29,chars:'淵(연)·在(재)·鍾(종)'},{se:30,chars:'振(진)·相(상)·圭(규)'},
+  {se:31,chars:'洛(낙)·永(영)·浩(호)·泳(영)·漢(한)'},
+  {se:32,chars:'模(모)·秉(병)·東(동)·植(식)·林(림)·相(상)'},
+  {se:33,chars:'煥(환)·炫(현)·衡(형)·大(대)·燮(섭)·昌(창)·魯(로)'},
+  {se:34,chars:'時(시)·奎(규)·逵(규)·在(재)·聲(성)·重(중)'},
+  {se:35,chars:'種(종)·鎬(호)·鉉(현)·鏞(용)·銖(수)·善(선)'},
+  {se:36,chars:'洙(수)·源(원)·澤(택)·泰(태)·淳(순)·河(하)'},
+  {se:37,chars:'權(권)·穆(목)·根(근)·來(래)·稷(직)·榮(영)'},
+  {se:38,chars:'憲(헌)·燁(엽)·炯(형)·勳(훈)·熙(희)·惠(혜)'},
+  {se:39,chars:'圭(규)·赫(혁)·珪(규)·周(주)·載(재)·垠(은)'},
+  {se:40,chars:'鍵(건)·鈺(옥)·鎰(일)·銓(전)·鍊(련)'},
+  {se:41,chars:'溶(용)·濟(제)·海(해)·浚(준)·洪(홍)'},
+  {se:42,chars:'柄(병)·楨(정)·和(화)·秀(수)·彬(빈)'},
+];
+const charMap={};
+hnData.forEach(r=>r.chars.split('·').forEach(c=>{const h=c.match(/^(.)/)?.[1];if(h)charMap[h]=r.se;}));
+
+function hnTab(t){
+  document.querySelectorAll('.hn-tab').forEach((el,i)=>el.classList.toggle('active',['find','compare','table'][i]===t));
+  document.querySelectorAll('.hn-panel').forEach(el=>el.classList.remove('active'));
+  document.getElementById('hn-'+t).classList.add('active');
+}
+function getSe(v){return charMap[v]||null;}
+function hnFind(){
+  const v=document.getElementById('hnFindInput').value.trim();
+  const el=document.getElementById('hnFindResult');
+  if(!v){el.style.display='none';return;}
+  const se=getSe(v);
+  el.style.display='block';
+  if(se){
+    const cd=se-CHEONGYE_SE+1;
+    el.className='hn-result found';
+    el.innerHTML=`<div class="hn-char">${v}</div><div class="hn-se">의성김씨 ${se}세 항렬</div><div class="hn-main">청계공 기준 제${cd}대손</div><div class="hn-sub">의성김씨 시조(김석) 기준 ${se}세손</div>`;
+  } else {
+    el.className='hn-result err';
+    el.innerHTML=`<div class="hn-err">항렬자를 찾을 수 없습니다. 전체 표 탭에서 직접 찾아보세요.</div>`;
+  }
+}
+function hnCompare(){
+  const me=document.getElementById('hnMe').value.trim();
+  const other=document.getElementById('hnOther').value.trim();
+  const el=document.getElementById('hnCompareResult');
+  if(!me||!other){el.style.display='none';return;}
+  const meSe=getSe(me),otherSe=getSe(other);
+  el.style.display='block';
+  if(!meSe||!otherSe){el.innerHTML=`<div class="hn-err">항렬자를 찾을 수 없습니다.</div>`;return;}
+  const diff=meSe-otherSe;
+  const meCd=meSe-CHEONGYE_SE+1,otherCd=otherSe-CHEONGYE_SE+1;
+  let verdict='',sub='';
+  if(diff===0){verdict='동항렬 — 형제뻘';sub='같은 세수이므로 동등한 항렬입니다';}
+  else if(diff<0){verdict=`상대방이 ${Math.abs(diff)}세 위`;sub='상대방을 어른으로 모셔야 합니다';}
+  else{verdict=`내가 ${diff}세 위`;sub='내가 항렬이 높습니다';}
+  el.innerHTML=`<div class="cmp-cards"><div class="cmp-card me"><div class="cmp-label">나</div><div class="cmp-char">${me}</div><div class="cmp-se">${meSe}세 · 청계공 기준 ${meCd}대손</div></div><div class="cmp-card"><div class="cmp-label">상대방</div><div class="cmp-char">${other}</div><div class="cmp-se">${otherSe}세 · 청계공 기준 ${otherCd}대손</div></div></div><div class="cmp-verdict"><div class="cmp-v-main">${verdict}</div><div class="cmp-v-sub">${sub}</div></div>`;
+}
+const tbody=document.getElementById('hnTableBody');
+hnData.forEach(r=>{
+  const cd=r.se-CHEONGYE_SE+1;
+  const tr=document.createElement('tr');
+  tr.dataset.se=r.se;
+  tr.innerHTML=`<td>${r.se}세</td><td>${r.chars}</td><td>제${cd}대손</td>`;
+  tbody.appendChild(tr);
+});
+['hnFindInput'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el)el.addEventListener('keydown',e=>{if(e.key==='Enter')hnFind();});
+});
+
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.1});
+reveals.forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
