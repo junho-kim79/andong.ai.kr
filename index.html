@@ -223,6 +223,34 @@ footer p{font-family:'Noto Sans KR',sans-serif;font-size:.78rem;letter-spacing:.
   </div>
 </section>
 
+<!-- HAENGNYEOL EARLY -->
+<section class="haengnyeol" id="haengnyeol" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">항렬자</div>
+    <h2 class="section-title reveal">나는 몇 <em>대손</em>일까요?</h2>
+    <div class="tab-row reveal">
+      <button class="hn-tab active" onclick="hnTab('find')">내 항렬 찾기</button>
+      <button class="hn-tab" onclick="hnTab('compare')">종친 항렬 비교</button>
+      <button class="hn-tab" onclick="hnTab('table')">항렬자 전체 표</button>
+    </div>
+    <div class="hn-panel active" id="hn-find">
+      <div class="hn-notice">이름에 쓰인 <strong>항렬 한자</strong> 한 글자를 입력하세요.<br>예) 김준<strong>호</strong>이면 → <strong>鎬</strong> 입력 · 청계공(15세)을 기준으로 계산합니다.</div>
+      <div class="hn-input-row"><input class="hn-input" id="hnFindInput" type="text" maxlength="1" placeholder="항렬 한자 입력 (예: 鎬)"><button class="hn-btn" onclick="hnFind()">검색</button></div>
+      <div class="hn-result" id="hnFindResult"></div>
+    </div>
+    <div class="hn-panel" id="hn-compare">
+      <div class="hn-notice">나와 상대방의 항렬 한자를 각각 입력하면 <strong>누가 몇 세 위인지</strong> 알려드립니다.<br>같은 세수라면 동항렬(형제뻘)입니다.</div>
+      <div class="compare-grid"><input class="hn-input" id="hnMe" type="text" maxlength="1" placeholder="내 항렬자"><div class="vs-label">vs</div><input class="hn-input" id="hnOther" type="text" maxlength="1" placeholder="상대 항렬자"></div>
+      <button class="hn-btn" style="width:100%;margin-bottom:1rem;" onclick="hnCompare()">비교하기</button>
+      <div class="compare-result" id="hnCompareResult"></div>
+    </div>
+    <div class="hn-panel" id="hn-table">
+      <div class="hn-notice">청계공(淸溪公 金璡, 1500~1580)을 <strong>1대조</strong>로 기준합니다.</div>
+      <table class="hn-table"><thead><tr><th>의성김씨 세</th><th>항렬자</th><th>청계공 기준</th></tr></thead><tbody id="hnTableBody"></tbody></table>
+    </div>
+  </div>
+</section>
+
 <!-- HISTORY -->
 <section class="history" id="history">
   <div class="section-inner">
@@ -444,34 +472,6 @@ footer p{font-family:'Noto Sans KR',sans-serif;font-size:.78rem;letter-spacing:.
   </div>
 </section>
 
-<!-- HAENGNYEOL -->
-<section class="haengnyeol" id="haengnyeol">
-  <div class="section-inner">
-    <div class="section-eyebrow reveal">항렬자</div>
-    <h2 class="section-title reveal">나는 몇 <em>대손</em>일까요?</h2>
-    <div class="tab-row reveal">
-      <button class="hn-tab active" onclick="hnTab('find')">내 항렬 찾기</button>
-      <button class="hn-tab" onclick="hnTab('compare')">종친 항렬 비교</button>
-      <button class="hn-tab" onclick="hnTab('table')">항렬자 전체 표</button>
-    </div>
-    <div class="hn-panel active" id="hn-find">
-      <div class="hn-notice">이름에 쓰인 <strong>항렬 한자</strong> 한 글자를 입력하세요.<br>예) 김준<strong>호</strong>이면 → <strong>鎬</strong> 입력 · 청계공(15세)을 기준으로 계산합니다.</div>
-      <div class="hn-input-row"><input class="hn-input" id="hnFindInput" type="text" maxlength="1" placeholder="항렬 한자 입력 (예: 鎬)"><button class="hn-btn" onclick="hnFind()">검색</button></div>
-      <div class="hn-result" id="hnFindResult"></div>
-    </div>
-    <div class="hn-panel" id="hn-compare">
-      <div class="hn-notice">나와 상대방의 항렬 한자를 각각 입력하면 <strong>누가 몇 세 위인지</strong> 알려드립니다.<br>같은 세수라면 동항렬(형제뻘)입니다.</div>
-      <div class="compare-grid"><input class="hn-input" id="hnMe" type="text" maxlength="1" placeholder="내 항렬자"><div class="vs-label">vs</div><input class="hn-input" id="hnOther" type="text" maxlength="1" placeholder="상대 항렬자"></div>
-      <button class="hn-btn" style="width:100%;margin-bottom:1rem;" onclick="hnCompare()">비교하기</button>
-      <div class="compare-result" id="hnCompareResult"></div>
-    </div>
-    <div class="hn-panel" id="hn-table">
-      <div class="hn-notice">청계공(淸溪公 金璡, 1500~1580)을 <strong>1대조</strong>로 기준합니다.</div>
-      <table class="hn-table"><thead><tr><th>의성김씨 세</th><th>항렬자</th><th>청계공 기준</th></tr></thead><tbody id="hnTableBody"></tbody></table>
-    </div>
-  </div>
-</section>
-
 <!-- ACCESS -->
 <section class="access" id="access">
   <div class="section-inner">
@@ -536,7 +536,7 @@ const hnData=[
   {se:37,chars:'權(권)·穆(목)·根(근)·來(래)·稷(직)·榮(영)'},
   {se:38,chars:'憲(헌)·燁(엽)·炯(형)·勳(훈)·熙(희)·惠(혜)'},
   {se:39,chars:'圭(규)·赫(혁)·珪(규)·周(주)·載(재)·垠(은)'},
-  {se:40,chars:'鍵(건)·鈺(옥)·鎰(일)·銓(전)·鍊(련)'}, 
+  {se:40,chars:'鍵(건)·鈺(옥)·鎰(일)·銓(전)·鍊(련)'},
   {se:41,chars:'溶(용)·濟(제)·海(해)·浚(준)·洪(홍)'},
   {se:42,chars:'柄(병)·楨(정)·和(화)·秀(수)·彬(빈)'},
 ];
